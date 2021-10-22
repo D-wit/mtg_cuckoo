@@ -1,11 +1,9 @@
-# Copyright (C) 2017 Cuckoo Foundation.
+# Copyright (C) 2010-2017 Cuckoo Foundation.
 # This file is part of Cuckoo Sandbox - http://www.cuckoosandbox.org
 # See the file 'docs/LICENSE' for copying permission.
 
-from cuckoo.common.abstracts import Signature
-from cuckoo.core.plugins import enumerate_plugins
+from ..compat import enumerate_signatures
 
-plugins = enumerate_plugins(
-    __file__, "signatures.linux", globals(),
-    Signature, dict(platform="linux")
+plugins = enumerate_signatures(
+    __file__, "linux", globals(), dict(platform="linux")
 )
