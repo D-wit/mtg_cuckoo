@@ -7,6 +7,7 @@ import calendar
 import datetime
 import json
 import os
+import parse_json
 
 from cuckoo.common.abstracts import Report
 from cuckoo.common.exceptions import CuckooReportError
@@ -60,8 +61,9 @@ class JsonDump(Report):
             with open(filepath, "wb", buffering=1024*1024) as report:
                 json.dump(
                     results, report, default=default, sort_keys=False,
-                    indent=self.options.indent, encoding="latin-1"
+                    indent=self.options.indent, encoding="utf-8"
                 )
+            parse_json.parse(filepath,filepath.split('/')[-3])
         except (TypeError, IOError) as e:
             raise CuckooReportError("Failed to generate JSON report: %s" % e)
         finally:

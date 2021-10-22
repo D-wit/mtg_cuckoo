@@ -789,6 +789,9 @@ class Analyzer(object):
                 log.warning("Exception running finish callback of auxiliary "
                             "module %s: %s", aux.__class__.__name__, e)
 
+        #Dump Event Log Files
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Sysmon%4Operational.evtx')
+
         # Dump all the notified files.
         self.files.dump_files()
 
