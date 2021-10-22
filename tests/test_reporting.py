@@ -277,14 +277,14 @@ def test_misp_signatures():
 
     assert r.misp.add_internal_comment.call_count == 36
     r.misp.add_internal_comment.assert_has_calls([
-        mock.call("event", "Creates a service - (T1031, CreateServiceW)"),
+        mock.call("event", "Creates a service - (T1543.003, CreateServiceW)"),
         mock.call("event", "Searches running processes potentially to identify"
                            " processes for sandbox evasion, code injection or"
                            " memory dumping -"
                            " (T1057, Process32FirstW, Process32NextW)"),
-        mock.call("event", "TTP: T1054, short: Indicator Blocking"),
+        mock.call("event", "TTP: T1562.006, short: Indicator Blocking"),
         mock.call("event", "Disables Windows Security features -"
-                           " (T1089, T1112, attempts to disable user access"
+                           " (T1562.001, T1112, attempts to disable user access"
                            " control)"),
         mock.call("event", "Communicates with host for which no DNS query was"
                            " performed - (200.87.164.69)")

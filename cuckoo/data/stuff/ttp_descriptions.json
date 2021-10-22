@@ -119,7 +119,7 @@
         "long": "An adversary may exfiltrate data in fixed size chunks instead of whole files or limit packet sizes below certain thresholds. This approach may be used to avoid triggering network data transfer threshold alerts.",
         "short": "Data Transfer Size Limits"
     },
-    "T1031": {
+    "T1543.003": {
         "long": "Windows service configuration information, including the file path to the service's executable or recovery programs/commands, is stored in the Registry. Service configurations can be modified using utilities such as sc.exe and Reg.",
         "short": "Modify Existing Service"
     },
@@ -175,7 +175,7 @@
         "long": "Processes may automatically execute specific binaries as part of their functionality or to perform other actions. If the permissions on the file system directory containing a target binary, or permissions on the binary itself, are improperly set, then the target binary may be overwritten with another binary using user-level permissions and executed by the original process. If the original process and thread are running under a higher permissions level, then the replaced binary will also execute under higher-level permissions, which could include SYSTEM.",
         "short": "File System Permissions Weakness"
     },
-    "T1045": {
+    "T1027.002": {
         "long": "Software packing is a method of compressing or encrypting an executable. Packing an executable changes the file signature in an attempt to avoid signature-based detection. Most decompression techniques decompress the executable code in memory.",
         "short": "Software Packing"
     },
@@ -211,7 +211,7 @@
         "long": "Utilities such as at and schtasks, along with the Windows Task Scheduler, can be used to schedule programs or scripts to be executed at a date and time. A task can also be scheduled on a remote system, provided the proper authentication is met to use RPC and file and printer sharing is turned on. Scheduling a task on a remote system typically required being a member of the Administrators group on the the remote system.",
         "short": "Scheduled Task"
     },
-    "T1054": {
+    "T1562.006": {
         "long": "An adversary may attempt to block indicators or events typically captured by sensors from being gathered and analyzed. This could include modifying sensor settings stored in configuration files and/or Registry keys to disable or maliciously redirect event telemetry.",
         "short": "Indicator Blocking"
     },
@@ -235,7 +235,7 @@
         "long": "Command-line interfaces provide a way of interacting with computer systems and is a common feature across many types of operating system platforms.  One example command-line interface on Windows systems is cmd, which can be used to perform a number of tasks including execution of other software. Command-line interfaces can be interacted with locally or remotely via a remote desktop application, reverse shell session, etc. Commands that are executed run with the current permission level of the command-line interface process unless the command includes process invocation that changes permissions context for that execution (e.g. Scheduled Task).",
         "short": "Command-Line Interface"
     },
-    "T1060": {
+    "T1547.001": {
         "long": "Adding an entry to the \"run keys\" in the Registry or startup folder will cause the program referenced to be executed when a user logs in.  These programs will be executed under the context of the user and will have the account's associated permissions level.",
         "short": "Registry Run Keys / Startup Folder"
     },
@@ -247,7 +247,7 @@
         "long": "A type-1 hypervisor is a software layer that sits between the guest operating systems and system's hardware.  It presents a virtual running environment to an operating system. An example of a common hypervisor is Xen.  A type-1 hypervisor operates at a level below the operating system and could be designed with Rootkit functionality to hide its existence from the guest operating system.  A malicious hypervisor of this nature could be used to persist on systems through interruption.",
         "short": "Hypervisor"
     },
-    "T1063": {
+    "T1518.001": {
         "long": "Adversaries may attempt to get a listing of security software, configurations, defensive tools, and sensors that are installed on the system. This may include things such as local firewall rules, anti-virus, and virtualization. These checks may be built into early-stage remote access tools.",
         "short": "Security Software Discovery"
     },
@@ -263,7 +263,7 @@
         "long": "If a malicious tool is detected and quarantined or otherwise curtailed, an adversary may be able to determine why the malicious tool was detected (the indicator), modify the tool by removing the indicator, and use the updated version that is no longer detected by the target's defensive systems or subsequent targets that may use similar systems.",
         "short": "Indicator Removal from Tools"
     },
-    "T1067": {
+    "T1542.003": {
         "long": "A bootkit is a malware variant that modifies the boot sectors of a hard drive, including the Master Boot Record (MBR) and Volume Boot Record (VBR).",
         "short": "Bootkit"
     },
@@ -319,7 +319,7 @@
         "long": "Content stored on network drives or in other shared locations may be tainted by adding malicious programs, scripts, or exploit code to otherwise valid files. Once a user opens the shared tainted content, the malicious portion can be executed to run the adversary's code on a remote system. Adversaries may use tainted shared content to move laterally.",
         "short": "Taint Shared Content"
     },
-    "T1081": {
+    "T1552.001": {
         "long": "Adversaries may search local file systems and remote file shares for files containing passwords. These can be files created by users to store their own credentials, shared credential stores for a group of individuals, configuration files containing passwords for a system or service, or source code/binary files containing embedded passwords.",
         "short": "Credentials in Files"
     },
@@ -339,7 +339,7 @@
         "long": "The rundll32.exe program can be called to execute an arbitrary binary. Adversaries may take advantage of this functionality to proxy execution of code to avoid triggering security tools that may not monitor execution of the rundll32.exe process because of safelists or false positives from Windows using rundll32.exe for normal operations.",
         "short": "Rundll32"
     },
-    "T1086": {
+    "T1059.001": {
         "long": "PowerShell is a powerful interactive command-line interface and scripting environment included in the Windows operating system.  Adversaries can use PowerShell to perform a number of actions, including discovery of information and execution of code. Examples include the Start-Process cmdlet which can be used to run an executable and the Invoke-Command cmdlet which runs a command locally or on a remote computer.",
         "short": "PowerShell"
     },
@@ -347,11 +347,11 @@
         "long": "Adversaries may attempt to get a listing of local system or domain accounts.",
         "short": "Account Discovery"
     },
-    "T1088": {
+    "T1548.002": {
         "long": "Windows User Account Control (UAC) allows a program to elevate its privileges to perform a task under administrator-level permissions by prompting the user for confirmation. The impact to the user ranges from denying the operation under high enforcement to allowing the user to perform the action if they are in the local administrators group and click through the prompt or allowing them to enter an administrator password to complete the action.",
         "short": "Bypass User Account Control"
     },
-    "T1089": {
+    "T1562.001": {
         "long": "Adversaries may disable security tools to avoid possible detection of their tools and activities. This can take the form of killing security software or event logging processes, deleting Registry keys so that tools do not start at run time, or other methods to interfere with security scanning or event reporting.",
         "short": "Disabling Security Tools"
     },
@@ -379,7 +379,7 @@
         "long": "Use of a standard non-application layer protocol for communication between host and C2 server or among infected hosts within a network. The list of possible protocols is extensive.  Specific examples include use of network layer protocols, such as the Internet Control Message Protocol (ICMP), transport layer protocols, such as the User Datagram Protocol (UDP), session layer protocols, such as Socket Secure (SOCKS), as well as redirected/tunneled protocols, such as Serial over LAN (SOL).",
         "short": "Standard Non-Application Layer Protocol"
     },
-    "T1096": {
+    "T1564.004": {
         "long": "Every New Technology File System (NTFS) formatted partition contains a Master File Table (MFT) that maintains a record for every file/directory on the partition.  Within MFT entries are file attributes,  such as Extended Attributes (EA) and Data [known as Alternate Data Streams (ADSs) when more than one Data attribute is present], that can be used to store arbitrary data (and even complete files).",
         "short": "NTFS File Attributes"
     },
@@ -463,7 +463,7 @@
         "long": "Code signing provides a level of authenticity on a binary from the developer and a guarantee that the binary has not been tampered with.  However, adversaries are known to use code signing certificates to masquerade malware and tools as legitimate binaries . The certificates used during an operation may be created, forged, or stolen by the adversary.",
         "short": "Code Signing"
     },
-    "T1117": {
+    "T1218.010": {
         "long": "Regsvr32.exe is a command-line program used to register and unregister object linking and embedding controls, including dynamic link libraries (DLLs), on Windows systems. Regsvr32.exe can be used to execute arbitrary binaries.",
         "short": "Regsvr32"
     },
@@ -567,7 +567,7 @@
         "long": "Keychains are the built-in way for macOS to keep track of users' passwords and credentials for many services and features such as WiFi passwords, websites, secure notes, certificates, and Kerberos. Keychain files are located in ~/Library/Keychains/,/Library/Keychains/, and /Network/Library/Keychains/.  The security command-line utility, which is built into macOS by default, provides a useful way to manage these credentials.",
         "short": "Keychain"
     },
-    "T1143": {
+    "T1564.003": {
         "long": "The configurations for how applications run on macOS and OS X are listed in property list (plist) files. One of the tags in these files can be apple.awt.UIElement, which allows for Java applications to prevent the application's icon from appearing in the Dock. A common use for this is when applications run in the system tray, but don't also want to show up in the Dock. However, adversaries can abuse this feature and hide their running window  .",
         "short": "Hidden Window"
     },
@@ -627,7 +627,7 @@
         "long": "macOS and OS X use a common method to look for required dynamic libraries (dylib) to load into a program based on search paths. Adversaries can take advantage of ambiguous paths to plant dylibs to gain privilege escalation or persistence.",
         "short": "Dylib Hijacking"
     },
-    "T1158": {
+    "T1564.001": {
         "long": "To prevent normal users from accidentally changing special files on a system, most operating systems have the concept of a \u2018hidden\u2019 file. These files don\u2019t show up when a user browses the file system with a GUI or when using normal commands on the command line. Users must explicitly ask to show the hidden files either via a series of Graphical User Interface (GUI) prompts or with command line switches (dir /a for Windows and ls \u2013a for Linux and macOS).",
         "short": "Hidden Files and Directories"
     },
@@ -747,7 +747,7 @@
         "long": "The Server Message Block (SMB) protocol is commonly used in Windows networks for authentication and communication between systems for access to resources and file sharing. When a Windows system attempts to connect to an SMB resource it will automatically attempt to authenticate and send credential information for the current user to the remote system.  This behavior is typical in enterprise environments so that users do not need to enter credentials to access network resources. Web Distributed Authoring and Versioning (WebDAV) is typically used by Windows systems as a backup protocol when SMB is blocked or fails. WebDAV is an extension of HTTP and will typically operate over TCP ports 80 and 443.",
         "short": "Forced Authentication"
     },
-    "T1188": {
+    "T1090.003": {
         "long": "To disguise the source of malicious traffic, adversaries may chain together multiple proxies. Typically, a defender will be able to identify the last proxy traffic traversed before it enters their network; the defender may or may not be able to identify any previous proxies before the last-hop proxy. This technique makes identifying the original source of the malicious traffic even more difficult by requiring the defender to trace malicious traffic through several proxies to identify its source.",
         "short": "Multi-hop Proxy"
     },

@@ -2458,7 +2458,7 @@
     "families": [], 
     "description": "Creates a service", 
     "ttp": {
-      "T1031": {
+      "T1543.003": {
         "short": "Modify Existing Service", 
         "long": "Windows service configuration information, including the file path to the service's executable or recovery programs/commands, is stored in the Registry. Service configurations can be modified using utilities such as sc.exe and Reg."
       }
@@ -2763,7 +2763,7 @@
     "families": [], 
     "description": "A process created a hidden window", 
     "ttp": {
-      "T1143": {
+      "T1564.003": {
         "short": "Hidden Window", 
         "long": "The configurations for how applications run on macOS and OS X are listed in property list (plist) files. One of the tags in these files can be apple.awt.UIElement, which allows for Java applications to prevent the application's icon from appearing in the Dock. A common use for this is when applications run in the system tray, but don't also want to show up in the Dock. However, adversaries can abuse this feature and hide their running window  ."
       }
@@ -3843,7 +3843,7 @@
     "families": [], 
     "description": "The binary likely contains encrypted or compressed data indicative of a packer", 
     "ttp": {
-      "T1045": {
+      "T1027.002": {
         "short": "Software Packing", 
         "long": "Software packing is a method of compressing or encrypting an executable. Packing an executable changes the file signature in an attempt to avoid signature-based detection. Most decompression techniques decompress the executable code in memory."
       }
@@ -3993,7 +3993,7 @@
     "families": [], 
     "description": "Installs itself for autorun at Windows startup", 
     "ttp": {
-      "T1060": {
+      "T1547.001": {
         "short": "Registry Run Keys / Startup Folder", 
         "long": "Adding an entry to the \"run keys\" in the Registry or startup folder will cause the program referenced to be executed when a user logs in.  These programs will be executed under the context of the user and will have the account's associated permissions level."
       }, 
@@ -4038,11 +4038,11 @@
     "families": [], 
     "description": "Attempts to modify Explorer settings to prevent file extensions from being displayed", 
     "ttp": {
-      "T1158": {
+      "T1564.001": {
         "short": "Hidden Files and Directories", 
         "long": "To prevent normal users from accidentally changing special files on a system, most operating systems have the concept of a \u2018hidden\u2019 file. These files don\u2019t show up when a user browses the file system with a GUI or when using normal commands on the command line. Users must explicitly ask to show the hidden files either via a series of Graphical User Interface (GUI) prompts or with command line switches (dir /a for Windows and ls \u2013a for Linux and macOS)."
       }, 
-      "T1054": {
+      "T1562.006": {
         "short": "Indicator Blocking", 
         "long": "An adversary may attempt to block indicators or events typically captured by sensors from being gathered and analyzed. This could include modifying sensor settings stored in configuration files and/or Registry keys to disable or maliciously redirect event telemetry."
       }
@@ -4064,11 +4064,11 @@
     "families": [], 
     "description": "Attempts to modify Explorer settings to prevent hidden files from being displayed", 
     "ttp": {
-      "T1158": {
+      "T1564.001": {
         "short": "Hidden Files and Directories", 
         "long": "To prevent normal users from accidentally changing special files on a system, most operating systems have the concept of a \u2018hidden\u2019 file. These files don\u2019t show up when a user browses the file system with a GUI or when using normal commands on the command line. Users must explicitly ask to show the hidden files either via a series of Graphical User Interface (GUI) prompts or with command line switches (dir /a for Windows and ls \u2013a for Linux and macOS)."
       }, 
-      "T1054": {
+      "T1562.006": {
         "short": "Indicator Blocking", 
         "long": "An adversary may attempt to block indicators or events typically captured by sensors from being gathered and analyzed. This could include modifying sensor settings stored in configuration files and/or Registry keys to disable or maliciously redirect event telemetry."
       }
@@ -4090,7 +4090,7 @@
     "families": [], 
     "description": "Disables Windows Security features", 
     "ttp": {
-      "T1089": {
+      "T1562.001": {
         "short": "Disabling Security Tools", 
         "long": "Adversaries may disable security tools to avoid possible detection of their tools and activities. This can take the form of killing security software or event logging processes, deleting Registry keys so that tools do not start at run time, or other methods to interfere with security scanning or event reporting."
       }, 

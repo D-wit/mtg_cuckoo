@@ -11,7 +11,7 @@ class StealthHiddenFile(Signature):
     categories = ["stealth"]
     authors = ["Optiv"]
     minimum = "2.0"
-    ttp = ["T1158", "T1054"]
+    ttp = ["T1564.001", "T1562.006"]
 
     regkeys_re = [
         ".*\\\\Software\\\\(Wow6432Node\\\\)?Microsoft\\\\Windows\\\\CurrentVersion\\\\Explorer\\\\Advanced\\\\Hidden$",
