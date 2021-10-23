@@ -790,7 +790,18 @@ class Analyzer(object):
                             "module %s: %s", aux.__class__.__name__, e)
 
         #Dump Event Log Files
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Application.evtx')
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Application-Experience%4Program-Compatibility-Assistant.evtx')
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Application-Experience%4Program-Telemetry.evtx')
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Bits-Client%4Operational.evtx')
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-PowerShell%4Operational.evtx')
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx')
         self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Sysmon%4Operational.evtx')
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx')
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-WinRM%4Operational.evtx')
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Winsock-WS2HELP%4Operational.evtx')
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Security.evtx')
+        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\System.evtx')
 
         # Dump all the notified files.
         self.files.dump_files()
