@@ -3,6 +3,7 @@
 # This file is part of Cuckoo Sandbox - http://www.cuckoosandbox.org
 # See the file 'docs/LICENSE' for copying permission.
 
+import ctypes
 import datetime
 import hashlib
 import logging
@@ -37,6 +38,19 @@ from lib.core.startup import init_logging, disconnect_logger, set_clock
 from modules import auxiliary
 
 log = logging.getLogger("analyzer")
+
+class disable_file_system_redirection:
+    _disable = ctypes.windll.kernel32.Wow64DisableWow64FsRedirection
+    _revert = ctypes.windll.kernel32.Wow64RevertWow64FsRedirection
+
+    def __enter__(self):
+        self.old_value = ctypes.c_long()
+        self.success = self._disable(ctypes.byref(self.old_value))
+
+    def __exit__(self, type, value, traceback):
+        if self.success:
+            self._revert(self.old_value)
+
 
 class Files(object):
     PROTECTED_NAMES = ()
@@ -790,18 +804,19 @@ class Analyzer(object):
                             "module %s: %s", aux.__class__.__name__, e)
 
         #Dump Event Log Files
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Application.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Application-Experience%4Program-Compatibility-Assistant.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Application-Experience%4Program-Telemetry.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Bits-Client%4Operational.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-PowerShell%4Operational.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Sysmon%4Operational.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-WinRM%4Operational.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Winsock-WS2HELP%4Operational.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\Security.evtx')
-        self.files.dump_file('C:\\Windows\\System32\\winevt\\Logs\\System.evtx')
+	with disable_file_system_redirection():
+	        self.files.dump_file('C:\Windows\\System32\\winevt\\Logs\\Application.evtx')
+        	self.files.dump_file('C:\Windows\System32\winevt\Logs\Microsoft-Windows-Application-Experience%4Program-Compatibility-Assistant.evtx')
+	        self.files.dump_file('C:\Windows\System32\winevt\Logs\Microsoft-Windows-Application-Experience%4Program-Telemetry.evtx')
+        	self.files.dump_file('C:\Windows\System32\winevt\Logs\Microsoft-Windows-Bits-Client%4Operational.evtx')
+        	self.files.dump_file('C:\Windows\System32\winevt\Logs\Microsoft-Windows-PowerShell%4Operational.evtx')
+        	self.files.dump_file('C:\Windows\System32\winevt\Logs\Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx')
+        	self.files.dump_file('C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx')
+        	self.files.dump_file('C:\Windows\System32\winevt\Logs\Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx')
+        	self.files.dump_file('C:\Windows\System32\winevt\Logs\Microsoft-Windows-WinRM%4Operational.evtx')
+        	self.files.dump_file('C:\Windows\System32\winevt\Logs\Microsoft-Windows-Winsock-WS2HELP%4Operational.evtx')
+        	self.files.dump_file('C:\Windows\System32\winevt\Logs\Security.evtx')
+        	self.files.dump_file('C:\Windows\System32\winevt\Logs\System.evtx')
 
         # Dump all the notified files.
         self.files.dump_files()
